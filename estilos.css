@@ -17,12 +17,12 @@ body{
 }
 .galeria_avances {
   display: flex;
-  justify-content: center;   /* centra todo horizontalmente */
-  gap: 40px;                 /* espacio entre imágenes */
+  justify-content: center;   
+  gap: 40px;                 
   padding: 40px;
 }
 .galeria_avances img {
-  width: 600px;              /* tamaño de las imágenes */
+  width: 700px;             
   height: auto;
 }
 
