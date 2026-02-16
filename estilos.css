@@ -5,3 +5,14 @@ body{
     background-color: white;
     color: black;
 }
+.galeria {
+  display: flex;
+  justify-content: center;   /* centra todo horizontalmente */
+  gap: 40px;                 /* espacio entre imágenes */
+  padding: 40px;
+}
+
+.galeria img {
+  width: 300px;              /* tamaño de las imágenes */
+  height: auto;
+}
