@@ -22,7 +22,7 @@ body{
   padding: 40px;
 }
 .galeria_avances img {
-  width: 1000px;              /* tamaño de las imágenes */
+  width: 600px;              /* tamaño de las imágenes */
   height: auto;
 }
 
