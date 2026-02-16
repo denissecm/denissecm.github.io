@@ -25,4 +25,10 @@ body{
   width: 700px;             
   height: auto;
 }
+.esquina {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  text-align: right;
+}
 
