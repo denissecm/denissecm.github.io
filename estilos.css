@@ -11,8 +11,18 @@ body{
   gap: 40px;                 /* espacio entre imágenes */
   padding: 40px;
 }
-
 .galeria img {
   width: 300px;              /* tamaño de las imágenes */
   height: auto;
 }
+.galeria_avances {
+  display: flex;
+  justify-content: center;   /* centra todo horizontalmente */
+  gap: 40px;                 /* espacio entre imágenes */
+  padding: 40px;
+}
+.galeria_avances img {
+  width: 1000px;              /* tamaño de las imágenes */
+  height: auto;
+}
+
