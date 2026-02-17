@@ -38,7 +38,7 @@ body{
 .esquina_izq {
   position: absolute;
   top: 20px;
-  right: 20px;
+  left: 20px;
   color: white;        
   text-align: left;
   font-size: 24px;
