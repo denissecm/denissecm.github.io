@@ -28,8 +28,7 @@ body{
 .alinear {
   position: absolute;
   top: 20px;
-  right: 20px;
-  color: white;        
+  right: 20px;      
   text-align: right;
   font-size: 24px;
   font-weight: bold;
