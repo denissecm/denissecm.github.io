@@ -25,12 +25,3 @@ body{
   width: 700px;             
   height: auto;
 }
-.top-bar {
-  background: black;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
-}
-
