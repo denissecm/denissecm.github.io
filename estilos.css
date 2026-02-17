@@ -1,8 +1,5 @@
 .centrar {
   text-align: center;
-  max-width: 900px;        /* ancho del bloque de texto */
-  margin: 0 auto;         /* lo centra en la página */
-  padding: 0 40px;        /* margen interno */
 }
 body{
   background-color: white;
@@ -36,3 +33,8 @@ body{
   font-size: 24px;
   font-weight: bold;
 }
+.texto {
+  max-width: 900px;        /* ancho del bloque de texto */
+  margin: 0 auto;         /* lo centra en la página */
+  padding: 0 40px;        /* margen interno */
+]
