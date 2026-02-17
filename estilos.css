@@ -15,16 +15,6 @@ body{
   width: 300px;              /* tamaño de las imágenes */
   height: auto;
 }
-.galeria_avances {
-  display: flex;
-  justify-content: center;   
-  gap: 40px;                 
-  padding: 40px;
-}
-.galeria_avances img {
-  width: 500px;             
-  height: auto;
-}
 .alinear {
   position: absolute;
   top: 20px;
