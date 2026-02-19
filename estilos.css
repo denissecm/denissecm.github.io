@@ -29,7 +29,7 @@ body{
   padding: 0 40px;        /* margen interno */
 }
 h1.flex {
-  display: flex;
+  display: grid;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
