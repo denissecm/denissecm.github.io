@@ -27,4 +27,11 @@ body{
   max-width: 900px;        /* ancho del bloque de texto */
   margin: 0 auto;         /* lo centra en la página */
   padding: 0 40px;        /* margen interno */
-]
+}
+h1.flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  }
