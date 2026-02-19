@@ -28,7 +28,7 @@ body{
   margin: 0 auto;         /* lo centra en la página */
   padding: 0 40px;        /* margen interno */
 }
-h1.flex {
+#contenedor {
   border: 10px solid blue;
   display: flex;
   flex-direction: row;
