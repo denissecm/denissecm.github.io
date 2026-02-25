@@ -65,10 +65,13 @@
     <script>
     
     let biografia;
+    let biog;
 
     document.addEventListener("DOMContentLoaded", function() {
-         biografia = document.getElementById();
-         document.getElementById("músico").addEventListener("click", obtenerJSON);
+         biografia = document.getElementById("bio");
+         bio=document.getElementByld("imagen");
+         document.getElementById("músico").addEventListener("click", obtenerJSON );
+         document.getElementByld("otro").addEventListener("click", obtenerJSON2 );
          console.log("DOM listo");
     });
 
@@ -82,10 +85,22 @@
         textoArtista.textContent = datos.artist[0].strBiographyEN;
         biografia.appendChild(textoArtista);
 
-        //const imagenArtista= document.createElement('');
+        const imagenArtista= document.createElement('img');
         
-        //imagenArtista.setAttribute('src', '');
+        imagenArtista.setAttribute('src', 'https://www.letras.com/blog/biografia-de-adele/');
+         biografia.appendChild(imagenArtista);
      }
+
+      async function obtenerJSON2() {
+      const respuesta = await fetch('https://www.theaudiodb.com/api/v1/json/123/search.php?s=Harry_Styles');  
+      const datos = await respuesta.json();
+      console.log(datos);
+
+      const textoArtista = document.createElement('p');
+      textoArtista.textContent = datos.artists[0].strBiographyEN;
+      biog.appendChild(textoArtista);
+      }
+    
 
 
 
