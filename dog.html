@@ -22,11 +22,10 @@
 <body>
    <button id="apidog">Dog</button>
    <script>
+    let dog;
     document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("apidog").addEventListener("click", irPorAlgo );
     });
-
-    let dog;
     async function irPorAlgo() {
       try {
             const respuesta = await fetch("https://api.thedogapi.com/v1/breeds?limit=1",      {
