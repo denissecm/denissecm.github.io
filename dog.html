@@ -1,28 +1,23 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dog</title>
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
-  
-  <style>
-    .flex.demo{
-     margin: .2em 0;
-     background: #2ecc40;
-     text-align: center;
-    }
-    .flex.demo div {
-      border:.1em solid pink;
-    }
+<html>
+    <body>
 
-  </style>
-</head>
-<body>
-   <button id="apidog">Dog</button>
-   <script>
-<script>
+        <button id="perro">
+            dog
+        </button>
+
+        <button id="info">
+            imagen
+        </button>
+
+        <div class="imagen" id="imagen">
+        </div>
+
+        <button id="votar">
+            votar
+        </button>
+
+        <script>
+
             let imagenPerro;
 
             document.addEventListener("DOMContentLoaded", function() {
@@ -62,24 +57,38 @@
             }
 
         </script>
-    async function irPorAlgo() {
-      try {
-            const respuesta = await fetch("https://api.thedogapi.com/v1/breeds?limit=1",      {
-            method: "GET", 
-            headers: {
-                 "x-api-key": "live_xsNeCQ2fGcl4ktS7tJQYALSKf25Cwk1qddaOaITVteqA49FgzrCimyQ9Z4Rxg1hO"
+
+
+        <style>
+            button{
+                font-size: medium;
+                align-items: center;
+                width: 100px;
+                height: 40px;
+                background-color: rgb(78, 78, 220);
+                color: white;
             }
-    });
-        if (!respuesta.ok) {
-          console.log("Error");
-          //throw new Error("Error");
-        }
-        const data = await respuesta.json();
-        console.log(data);
-      } catch (error) {
-        console.error("Error:", error.message);
-      }
-    }
-    </script>
-</body>
+
+            button:hover{
+                background-color: rgb(29, 29, 145);
+            }
+
+            .imagen{
+                display: flex;
+                margin-top: 40px;
+                margin-bottom: 20px;
+            }
+
+            #votar{
+                background-color: rgb(113, 176, 96);
+            }
+
+            #votar:hover{
+                background-color: rgb(56, 88, 47);
+            }
+        </style>
+        
+    </body>
+
+
 </html>
