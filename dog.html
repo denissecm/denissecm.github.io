@@ -20,7 +20,7 @@
   </style>
 </head>
 <body>
-   <button id="musico">Dog</button>
+   <button id="apidog">Dog</button>
    <script>
     document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("apidog").addEventListener("click", irPorAlgo );
@@ -28,7 +28,7 @@
 
     async function irPorAlgo() {
       try {
-            const respuesta = await fetch("https://api.thedogapi.com/v1/facts/random",      {
+            const respuesta = await fetch("https://api.thedogapi.com/v1/breeds?limit=1",      {
             method: "GET", 
             headers: {
                  "x-api-key": "live_xsNeCQ2fGcl4ktS7tJQYALSKf25Cwk1qddaOaITVteqA49FgzrCimyQ9Z4Rxg1hO"
