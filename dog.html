@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi página con Picnic CSS</title>
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
+  
+  <style>
+    .flex.demo{
+     margin: .2em 0;
+     background: #2ecc40;
+     text-align: center;
+    }
+    .flex.demo div {
+      border:.1em solid pink;
+    }
 
+  </style>
+</head>
+<body>
+   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("apidog").addEventListener("click", obtenerJSON );
+    });
+
+    async function irPorAlgo() {
+      try {
+            const respuesta = await fetch("https://api.thedogapi.com/v1/facts/random",      {
+            method: "GET", 
+            headers: {
+                 "x-api-key": "YOUR-API-KEY"
+            }
+    });
+        if (!respuesta.ok) {
+          console.log("Error");
+          //throw new Error("Error");
+        }
+        const data = await respuesta.json();
+        console.log(data);
+      } catch (error) {
+        console.error("Error:", error.message);
+      }
+    }
+    </script>
+</body>
+</html>
