@@ -34,12 +34,11 @@
             headers: {
                  "x-api-key": "live_xsNeCQ2fGcl4ktS7tJQYALSKf25Cwk1qddaOaITVteqA49FgzrCimyQ9Z4Rxg1hO"
             }
-            const imagenDog = document.createElement('img');
-        
-            imagenDog.setAttribute('src', 'https://api.thedogapi.com/v1/images/search?limit=1');
-            dog.appendChild(imagenDog);
-
     });
+        const imagenDog = document.createElement('img');
+        imagenDog.setAttribute('src', 'https://api.thedogapi.com/v1/images/search?limit=1');
+        dog.appendChild(imagenDog);
+        
         if (!respuesta.ok) {
           console.log("Error");
           //throw new Error("Error");
