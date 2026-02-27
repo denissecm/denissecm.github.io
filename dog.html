@@ -26,6 +26,7 @@
         document.getElementById("apidog").addEventListener("click", irPorAlgo );
     });
 
+    let dog;
     async function irPorAlgo() {
       try {
             const respuesta = await fetch("https://api.thedogapi.com/v1/breeds?limit=1",      {
@@ -33,8 +34,11 @@
             headers: {
                  "x-api-key": "live_xsNeCQ2fGcl4ktS7tJQYALSKf25Cwk1qddaOaITVteqA49FgzrCimyQ9Z4Rxg1hO"
             }
-            imagen.setAttribute('src', 'https://api.thedogapi.com/v1/images/search?limit=1');
-            img.appendChild(imagen);
+            const imagenDog = document.createElement('img');
+        
+            imagenDog.setAttribute('src', 'https://api.thedogapi.com/v1/images/search?limit=1');
+            dog.appendChild(imagenDog);
+
     });
         if (!respuesta.ok) {
           console.log("Error");
