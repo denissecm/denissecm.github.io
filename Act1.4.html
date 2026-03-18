@@ -6,3 +6,27 @@ function mostrarInfo() {
     console.log('Memoria libre:', os.freemem());
 }
 mostrarInfo();
+
+//Ejercicio 2
+const http = require('http');
+const url = require('url');
+const servidor = http.createServer((req, res) => {
+  console.log("Alguien me mandó una solicitud");
+  const urlProcesada = url.parse(req.url, true);
+  const queryParams = urlProcesada.query;
+  const nombre = queryParams.nombre;
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  // Dos respuestas diferentes usando la variable
+  if (nombre === "Denisse") {
+    res.end(`Hola ${nombre}, tienes acceso especial.\n`);
+  } else {
+    res.end(`Hola ${nombre || "desconocido"}, no tienes acceso.\n`);
+  }
+});
+const puerto = 1984;
+servidor.listen(puerto, () => {
+  console.log(`Servidor escuchando en el puerto ${puerto}`);
+});
+
+//Ejercicio 3
+
