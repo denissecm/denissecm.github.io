@@ -29,4 +29,32 @@ servidor.listen(puerto, () => {
 });
 
 //Ejercicio 3
+const http = require('http');
+http.createServer((req, res) => {
+res.writeHead(200, {'Content-Type': 'application/json'});
+const respuesta = {
+    status: "success",
+    message: "Este es un JSON desde Node.js",
+    fecha: new Date().toLocaleDateString()
+    };
+res.end(JSON.stringify(respuesta));
+}).listen(1984);
+console.log("Servidor JSON en http://localhost:1984");
 
+//Ejercicio 4 
+const http = require('http');
+const axios = require('axios');
+http.createServer(async (req, res) => {
+    try {
+        const response = await axios.get('https://rickandmortyapi.com/api/character/1');
+        res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+        res.end(`
+            <h1>Personaje consumido desde el servidor:</h1>
+            <p>Nombre: ${response.data.name}</p>
+            <img src="${response.data.image}" />
+        `);
+    } catch (error) {
+        res.end("Error al consumir la API");
+    }
+}).listen(3002);
+console.log("Servidor API en http://localhost:1984");
