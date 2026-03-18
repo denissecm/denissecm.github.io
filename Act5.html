@@ -4,119 +4,168 @@ import http from 'http';
 import fs from 'fs';
 
 
-    //Esta función deberá mostrar deberá mostrar una página HTML 
-    //con la bienvenida a tu proyecto
-    function darBienvenida(req, res) {
-       //Agrega lo mínimo necesario en bienvenida.html
-       
-      
-      fs.readFile('bienvenida.html', 'utf8', (error, data) => {
-        if (error) {
-           //Escribe qué significa el 500 
-          res.writeHead(500, { 'Content-Type': 'text/plain' });
-          res.end('Oh no!!!!');
-          return;
-        }
-        //Escribe qué significa el 200
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end(data);
-    });
+//Esta función deberá mostrar una página HTML 
+//con la bienvenida a tu proyecto
+function darBienvenida(req, res) {
+
+  fs.readFile('bienvenida.html', 'utf8', (error, data) => {
+    if (error) {
+      //El código 500 significa "Internal Server Error"
+      //Indica que ocurrió un error dentro del servidor al intentar procesar la solicitud.
+      res.writeHead(500, { 'Content-Type': 'text/plain' });
+      res.end('Oh no!!!!');
+      return;
     }
 
+    //El código 200 significa "OK"
+    //Indica que la solicitud se procesó correctamente y el servidor envía la respuesta.
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(data);
+  });
+}
 
-    //Esta función deberá enviar un json con los datos de las mascotas
-    function getMascotas(req, res) {
-        //Esto representa un objeto JSON de una mascota
-        //Agrega otra escuela
-        const mascotas = {
-            "nombre": "Pikachu",
-            "color": "Amarillo",
-          };  
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      
-      //Escribe qué hace la función stringify y por qué la tenemos que usar
-      res.end(JSON.stringify(mascotas));
+
+//Esta función deberá enviar un json con los datos de las mascotas
+function getMascotas(req, res) {
+
+  //Esto representa un objeto JSON con varias mascotas
+  const mascotas = [
+    {
+      "nombre": "Pikachu",
+      "color": "Amarillo"
+    },
+    {
+      "nombre": "Bulbasaur",
+      "color": "Verde"
+    }
+  ];
+
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+
+  //JSON.stringify convierte un objeto de JavaScript en texto JSON.
+  //Es necesario porque las respuestas HTTP solo pueden enviar texto,
+  //no objetos directamente.
+  res.end(JSON.stringify(mascotas));
+}
+
+
+function mostrarPerfil(req, res) {
+  fs.readFile('perfil.html', 'utf8', (error, data) => {
+    if (error) {
+      res.writeHead(500, { 'Content-Type': 'text/plain' });
+      res.end('Oh no!!!!');
+      return;
+    }
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(data);
+  });
+}
+
+
+function mostrarAdoptantes(req, res) {
+  fs.readFile('adoptantes.html', 'utf8', (error, data) => {
+    if (error) {
+      res.writeHead(500, { 'Content-Type': 'text/plain' });
+      res.end('Oh no!!!!');
+      return;
+    }
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(data);
+  });
+}
+
+
+//Esta función deberá enviar un json con los datos de los adoptantes
+function getAdoptantes(req, res) {
+
+  const adoptantes = [
+    {
+      "nombre": "Carlos",
+      "edad": 28
+    },
+    {
+      "nombre": "Ana",
+      "edad": 24
+    }
+  ];
+
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify(adoptantes));
+}
+
+
+//Página 404
+function manejarRuta404(req, res) {
+  res.writeHead(404, { 'Content-Type': 'text/plain' });
+
+  //404 significa que la página o recurso solicitado no existe
+  res.end('Oops 😅 te perdiste... esta página no existe.');
+}
+
+
+//Función para mostrar el equipo
+function mostrarEquipo(req, res) {
+  fs.readFile('equipo.html', 'utf8', (error, data) => {
+    if (error) {
+      res.writeHead(500, { 'Content-Type': 'text/plain' });
+      res.end('Error al cargar la página del equipo');
+      return;
     }
 
-  
-    function mostrarPerfil(req, res) {
-        fs.readFile('perfil.html', 'utf8', (error, data) => {
-            if (error) {
-              res.writeHead(500, { 'Content-Type': 'text/plain' });
-              res.end('Oh no!!!!');
-              return;
-            }
-            res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.end(data);
-        });
-      }
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(data);
+  });
+}
 
-     
-      function mostrarAdoptantes(req, res) {
-        //Construye una página básica adpotantes.html
-        fs.readFile('adoptantes.html', 'utf8', (error, data) => {
-            if (error) {
-              res.writeHead(500, { 'Content-Type': 'text/plain' });
-              res.end('Oh no!!!!');
-              return;
-            }
-            res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.end(data);
-        });
-      }
 
-    //Esta función deberá enviar un json con los datos de las adoptantes
-    function getAdoptantes(req, res) {
-    //Tienes que corregir varias cosas en esta sección
-      res.writeHead(200, { 'Content-Type': 'text/plain' });
-      res.end('Aquí van los datos de los adoptantes');
+//Función para mostrar la opinión
+function mostrarOpinion(req, res) {
+  fs.readFile('opinion.html', 'utf8', (error, data) => {
+    if (error) {
+      res.writeHead(500, { 'Content-Type': 'text/plain' });
+      res.end('Error al cargar la opinión');
+      return;
     }
 
-    function manejarRuta404(req, res) {
-      res.writeHead(404, { 'Content-Type': 'text/plain' });
-      //Cambia el mensaje por algo más divertido
-      res.end('Página no encontrada.');
-    }
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(data);
+  });
+}
 
-    //incluye el enlace a la documentación de createServer
-    const servidor = http.createServer((req, res) => {
-      const url = req.url;
 
-      if (url === '/') {
-        darBienvenida(req, res);
-      } else if (url === '/api/mascotas') {
-        getMascotas(req, res);
-      } else if (url === '/api/adoptantes') {
-        getAdoptantes(req, res);
-      } 
-      else if (url === '/mascotas') {
-        mostrarMascotas(req, res);
-      } 
-      else if (url === '/adoptantes') {
-        mostrarAdoptantes(req, res);
-      } 
-      //Agrega una ruta /equipo y su función correspondiente para que muestre el equipo del proyecto
-      //Haz una página equipo.html correspondiente
-      //Escribe el nombre completo y una cualidad que valores en esa persona de tu equipo
-      //Trata de agregar una imagen a equipo.html
-      //Explica si la puedes ver, en caso negativo ¿qué crees que pase?
+//createServer crea un servidor web en Node.js
+//Documentación: https://nodejs.org/api/http.html#httpcreateserveroptions-requestlistener
+const servidor = http.createServer((req, res) => {
 
-      //Agrega una ruta /opinion
-      //Haz una página opinion.html
-      // Lee el siguiente artículo y responde ¿Crees que el colonialismo digital es un riesgo para tu carrera profesionl? ¿Para tu vida persona?
-      //¿Qué es el freedombox?
-      //https://www.aljazeera.com/opinions/2019/3/13/digital-colonialism-is-threatening-the-global-south
-      
-      
-      else {
-        manejarRuta404(req, res);
-      }
-    });
+  const url = req.url;
 
-    const puerto = 1984;
-    servidor.listen(puerto, () => {
-      console.log(`Servidor escuchando en el puerto ${puerto}`);
-    });
+  if (url === '/') {
+    darBienvenida(req, res);
 
-    //Importante
-    //En esta actividad deberás agregar en miarchivo.html un enlace a servidor.js y al resto de los html
+  } else if (url === '/api/mascotas') {
+    getMascotas(req, res);
+
+  } else if (url === '/api/adoptantes') {
+    getAdoptantes(req, res);
+
+  } else if (url === '/adoptantes') {
+    mostrarAdoptantes(req, res);
+
+  } else if (url === '/equipo') {
+    mostrarEquipo(req, res);
+
+  } else if (url === '/opinion') {
+    mostrarOpinion(req, res);
+
+  } else {
+    manejarRuta404(req, res);
+  }
+
+});
+
+
+const puerto = 1984;
+
+servidor.listen(puerto, () => {
+  console.log(`Servidor escuchando en el puerto ${puerto}`);
+});
