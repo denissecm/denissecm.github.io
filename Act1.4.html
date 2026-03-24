@@ -16,16 +16,17 @@ const servidor = http.createServer((req, res) => {
   const queryParams = urlProcesada.query;
   const nombre = queryParams.nombre;
   res.writeHead(200, { 'Content-Type': 'text/plain' });
-  if (nombre === "Denisse") {
+  if (nombre == "Denisse") {
     res.end(`Hola ${nombre}, tienes acceso especial.\n`);
   } else {
-    res.end(`Hola ${nombre || "desconocido"}, no tienes acceso.\n`);
+    res.end(`Hola desconocido, no tienes acceso.\n`);
   }
 });
 const puerto = 1984;
 servidor.listen(puerto, () => {
   console.log(`Servidor escuchando en el puerto ${puerto}`);
 });
+
 
 //Ejercicio 3
 const http = require('http');
