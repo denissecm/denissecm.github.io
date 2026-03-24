@@ -16,7 +16,6 @@ const servidor = http.createServer((req, res) => {
   const queryParams = urlProcesada.query;
   const nombre = queryParams.nombre;
   res.writeHead(200, { 'Content-Type': 'text/plain' });
-  // Dos respuestas diferentes usando la variable
   if (nombre === "Denisse") {
     res.end(`Hola ${nombre}, tienes acceso especial.\n`);
   } else {
