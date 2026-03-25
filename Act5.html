@@ -11,16 +11,12 @@ const fs = require('fs');
       
       fs.readFile('bienvenida.html', 'utf8', (error, data) => {
         if (error) {
-           //Escribe qué significa el 500 
-           // RESPUESTA: El código 500 significa "Internal Server Error" (Error interno del servidor)
-           // Indica que el servidor encontró una situación inesperada que le impide completar la solicitud
+           //El código 500 significa "Internal Server Error" (Error interno del servidor) Indica que el servidor encontró una situación inesperada que le impide completar la solicitud
           res.writeHead(500, { 'Content-Type': 'text/plain' });
           res.end('Oh no!!!!');
           return;
         }
-        //Escribe qué significa el 200
-        // RESPUESTA: El código 200 significa "OK" (Todo correcto)
-        // Indica que la solicitud se procesó exitosamente
+        //El código 200 significa "OK" (Todo correcto) Indica que la solicitud se procesó exitosamente
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.end(data);
     });
@@ -37,10 +33,7 @@ const fs = require('fs');
           };  
       res.writeHead(200, { 'Content-Type': 'application/json' });
       
-      //Escribe qué hace la función stringify y por qué la tenemos que usar
-      // RESPUESTA: JSON.stringify() convierte un objeto de JavaScript en una cadena de texto con formato JSON.
-      // La tenemos que usar porque HTTP solo puede enviar texto, no puede enviar objetos directamente.
-      // Al convertirlo a string, podemos enviar los datos y el cliente podrá parsearlos para usarlos.
+      // JSON.stringify() convierte un objeto de JavaScript en una cadena de texto con formato JSON. La tenemos que usar porque HTTP solo puede enviar texto, no puede enviar objetos directamente. Al convertirlo a string, podemos enviar los datos y el cliente podrá parsearlos para usarlos.
       res.end(JSON.stringify(mascotas));
     }
 
@@ -74,7 +67,6 @@ const fs = require('fs');
     //Esta función deberá enviar un json con los datos de las adoptantes
     function getAdoptantes(req, res) {
     //Tienes que corregir varias cosas en esta sección
-    // CORRECCIÓN: Cambiar Content-Type a application/json y enviar un JSON real
       const adoptantes = [
         {
           "nombre": "Ana García",
@@ -97,8 +89,7 @@ const fs = require('fs');
     function manejarRuta404(req, res) {
       res.writeHead(404, { 'Content-Type': 'text/plain' });
       //Cambia el mensaje por algo más divertido
-      // RESPUESTA: Mensaje más divertido
-      res.end('🐱 ¡Ups! Parece que esta mascota se escapó... Página no encontrada 🐶');
+      res.end('¡Ups! Parece que esta mascota se escapó... Página no encontrada');
     }
 
     // Función para mostrar mascotas (HTML)
@@ -163,9 +154,7 @@ const fs = require('fs');
       //Escribe el nombre completo y una cualidad que valores en esa persona de tu equipo
       //Trata de agregar una imagen a equipo.html
       //Explica si la puedes ver, en caso negativo ¿qué crees que pase?
-      // RESPUESTA: La imagen se podrá ver si la ruta de la imagen en el HTML es correcta y el archivo existe.
-      // Si no se ve, puede ser porque: 1) La ruta de la imagen es incorrecta, 2) El archivo de imagen no existe,
-      // 3) El servidor no tiene permisos para leer el archivo, 4) El tipo MIME de la imagen no está configurado
+      //La imagen se podrá ver si la ruta de la imagen en el HTML es correcta y el archivo existe. Si no se ve, puede ser porque la ruta de la imagen es incorrecta o el archivo de imagen no existe 
       else if (url === '/equipo') {
         mostrarEquipo(req, res);
       }
