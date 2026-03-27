@@ -1,5 +1,4 @@
-import http from 'http';
-
+const http = require('http');
 const servidor = http.createServer(async (req, res) => {
     if (req.url === '/usuarios') {
             const respuesta = await fetch('https://jsonplaceholder.typicode.com/users');
